@@ -4,6 +4,7 @@ import Main from '../../components/Main'
 import QuesAns from '../../components/QuesAns';
 import Head from 'next/head';
 import { apiBaseUrl } from '../../helpers/constants';
+import { useRouter } from 'next/router'
 
 export async function getStaticPaths() {
     const res = await axios.get(`${apiBaseUrl}/api/questions/populars`);
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
     const paths = popularQues.map((ques) => ({
         params: { qid: ques._id }
     }))
-    return { paths, fallback: false }
+    return { paths, fallback: true }
 }
 
 export async function getStaticProps({ params }) {
@@ -24,7 +25,10 @@ export async function getStaticProps({ params }) {
 
 
 function Question({ ques }) {
-
+    const router = useRouter();
+    if (router.isFallback) {
+        return <div>Loading...</div>
+    }
     return (
         <div>
             <Head >
