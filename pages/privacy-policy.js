@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function termsConditions() {
+function PrivacyPolicy() {
     const classes = useStyles();
     return (
         <>
@@ -34,4 +34,4 @@ function termsConditions() {
     )
 }
 
-export default termsConditions
+export default PrivacyPolicy

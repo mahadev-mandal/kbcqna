@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-function contactus() {
+function ContactUs() {
     const classes = useStyles();
     return (
         <div>
@@ -66,4 +66,4 @@ function contactus() {
     )
 }
 
-export default contactus
+export default ContactUs

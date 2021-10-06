@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function termsConditions() {
+function TermsConditions() {
     const classes = useStyles();
     return (
         <>
@@ -41,4 +41,4 @@ function termsConditions() {
     )
 }
 
-export default termsConditions
+export default TermsConditions
