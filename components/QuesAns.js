@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
-import { Grid, Paper } from '@material-ui/core';
+import { capitalize, Grid, Paper, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 
 
@@ -16,12 +16,13 @@ const useStyles = makeStyles((theme) => ({
     },
     li: {
         fontWeight: "bolder",
-        marginBottom: 10
+        marginBottom: 10,
+        textTransform:'capitalize',
     },
     helperText: {
         fontSize: 12,
         fontWeight: 'bold',
-        textTransform:'capitalize'
+        textTransform: 'capitalize'
     }
 }));
 
@@ -42,8 +43,10 @@ export default function QuesAns({ ques }) {
                     <Grid item>
                         <StarIcon />
                     </Grid>
-                    <Grid item style={{textTransform:'capitalize'}}>
-                        {ques.question}{ques.question[ques.question.length-1]==='?'?'':'?'}
+                    <Grid item >
+                        <Typography variant='h5' component="h1" >
+                            {ques.question}
+                        </Typography>
                     </Grid>
                 </Grid>
                 <div style={{ marginLeft: 15 }}>
@@ -53,7 +56,7 @@ export default function QuesAns({ ques }) {
                         ))}
                     </ol>
                     <FormHelperText className={classes.helperText}>
-                       {show ?" Answer is : "+''+ ques.correctOption : ''}
+                        {show ? " Answer is : " + '' + ques.correctOption : ''}
                     </FormHelperText>
                     <Button
                         variant="outlined"
