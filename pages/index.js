@@ -37,7 +37,7 @@ function Home() {
       <Head>
         <title>kbc questions and answers</title>
       </Head>
-      <Main style={{ whiteSpace: 'pre-wrap' }} mainContent={Content()} />
+      <Main mainContent={Content()} />
     </div>
   )
 }

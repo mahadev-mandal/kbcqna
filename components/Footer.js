@@ -75,16 +75,16 @@ function Footer() {
                 <Link href="/" >
                     <a>Home</a>
                 </Link>
-                <Link href="aboutus" >
+                <Link href="/aboutus" >
                     <a>About Us</a>
                 </Link>
-                <Link href="contactus" >
+                <Link href="/contactus" >
                     <a>Contact Us</a>
                 </Link>
-                <Link href="terms-condition" >
+                <Link href="/terms-conditions" >
                     <a>Terms & conditions</a>
                 </Link>
-                <Link href="privacy-policy" >
+                <Link href="/privacy-policy" >
                     <a>Privacy policy</a>
                 </Link>
             </div>

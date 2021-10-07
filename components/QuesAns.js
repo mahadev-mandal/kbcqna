@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1, 1, 0, 0),
     },
     li: {
-        fontWeight: "bolder",
         marginBottom: 10,
         textTransform:'capitalize',
+        fontSize:16
     },
     helperText: {
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: 'bold',
         textTransform: 'capitalize'
     }
@@ -32,6 +32,9 @@ export default function QuesAns({ ques }) {
     const handleClick = () => {
         setShow(!show)
     };
+    useEffect(()=>{
+        setShow(false)
+    },[ques])
 
     return (
         <Paper>
@@ -39,11 +42,11 @@ export default function QuesAns({ ques }) {
                 component="fieldset"
                 className={classes.formControl}
             >
-                <Grid container spacing={1}>
-                    <Grid item>
+                <Grid container spacing={1} >
+                    <Grid item xs={1}>
                         <StarIcon />
                     </Grid>
-                    <Grid item >
+                    <Grid item xs={11}>
                         <Typography variant='h5' component="h1" >
                             {ques.question}
                         </Typography>

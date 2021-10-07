@@ -10,6 +10,5 @@ export default async function getUsers(req, res) {
         res.status(200).send(users)
     }).catch((err)=>{
         res.status(404).send("error occured while fetching users")
-        console.log(err);
     })
 }

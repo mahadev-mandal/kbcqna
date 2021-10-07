@@ -21,7 +21,6 @@ const deleteQuestion = async (req, res) => {
             res.status(200).json(ques)
         }).catch((err) => {
             res.status(500).json({error:"failed to delete"})
-            console.log(err)
         })
 }
 const getQuestion = async (req, res) => {

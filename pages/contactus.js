@@ -3,37 +3,32 @@ import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import Footer from '../components/Footer'
 import Heading from '../components/Heading'
-const useStyles = makeStyles((theme)=>({
-    div1:{
-        background:'rgba(255,255,255,0.8)',
-        marginTop:20,
-        textAlign:'center',
-        padding:10,
-        marginLeft: 5,
-        marginRight: 5,
-        borderRadius:10,
-        [theme.breakpoints.up('md')]: {
-            marginLeft: 60,
-            marginRight: 60,
-        },
-        '& h6':{
-            fontFamily:'serif'
+const useStyles = makeStyles((theme) => ({
+    root:{
+        marginRight:5,
+        marginLeft:5,
+        [theme.breakpoints.up('md')]:{
+            marginLeft:60,
+            marginRight:60,
         }
     },
-    div2:{
-        background:'linear-gradient(45deg,rgba(0,0,255,0.5),rgba(204,153,255,0.5))',
-        marginTop:10,
-        textAlign:'center',
-        padding:10,
-        marginLeft: 5,
-        marginRight: 5,
-        borderRadius:10,
-        [theme.breakpoints.up('md')]: {
-            marginLeft: 60,
-            marginRight: 60,
-        },
-        '& h6':{
-            fontFamily:'serif'
+    div1: {
+        background: 'rgba(255,255,255,0.8)',
+        textAlign: 'center',
+        padding: 10,
+        borderRadius: 10,
+        '& h6': {
+            fontFamily: 'serif'
+        }
+    },
+    div2: {
+        background: 'linear-gradient(45deg,rgba(0,0,255,0.5),rgba(204,153,255,0.5))',
+        marginTop: 10,
+        textAlign: 'center',
+        padding: 10,
+        borderRadius: 10,
+        '& h6': {
+            fontFamily: 'serif'
         }
     }
 }))
@@ -41,7 +36,7 @@ const useStyles = makeStyles((theme)=>({
 function ContactUs() {
     const classes = useStyles();
     return (
-        <div>
+        <div className={classes.root}>
             <Heading />
             <div className={classes.div1} >
                 <Typography variant='h6' >

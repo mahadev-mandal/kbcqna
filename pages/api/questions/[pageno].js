@@ -9,7 +9,6 @@ export default async function questionPerPage(req, res) {
         .then((questions) => {
             res.status(200).json(questions)
         }).catch((err) => {
-            console.log(err)
             res.status(500).json({error:"internal server Error"})
         })
 }

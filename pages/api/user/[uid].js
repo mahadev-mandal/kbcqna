@@ -3,7 +3,6 @@ import userModel from '../../../models/userSchema'
 
 db_conn();
 export default function question(req, res) {
-    console.log(req.method)
     switch (req.method) {
         case "GET":
             getUser(req, res);
@@ -21,6 +20,5 @@ const deleteUser = async (req, res) => {
         res.status(200).json(ques)
     }).catch((err)=>{
         res.status(500).json("failed to delete user")
-        console.log(err)
     })
 }

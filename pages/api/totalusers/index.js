@@ -7,7 +7,7 @@ export default async function totalUsers(req, res) {
         .then((total) => {
             res.status(200).json(total)
         }).catch((err) => {
-            console.log(err)
+            res.status(404).json({error:"error occured while fetching total no of users"})
         })
 
 }

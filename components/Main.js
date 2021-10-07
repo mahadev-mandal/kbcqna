@@ -10,7 +10,8 @@ import Heading from './Heading';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-
+        marginLeft:5,
+        marginRight:5,
         [theme.breakpoints.up('md')]: {
             padding: '20px 60px'
         }
@@ -35,8 +36,8 @@ function Main({ mainContent }) {
     if (populars) {
         return (
             <>
-                <Heading />
                 <Container maxWidth="lg" className={classes.root}>
+                    <Heading />
                     <Grid container spacing={5} >
                         <Grid item xs={12} md={8}>
                             <Grid item >
@@ -63,9 +64,8 @@ function Main({ mainContent }) {
                             ))}
                         </Grid>
                     </Grid>
-
+                    <Footer />
                 </Container>
-                <Footer />
             </>
         )
     } else if (error) {

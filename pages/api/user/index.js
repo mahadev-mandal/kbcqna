@@ -30,10 +30,8 @@ const saveUser = async (req, res) => {
                 res.status(200).json(u)
             }).catch((err) => {
                 if (err.keyPattern.email === 1) {
-                    console.log('email present')
                     res.status(500).json({errorMessage:"email is already present"})
                 } else {
-                    console.log("something went wrong")
                     res.status(500).send("something went wrong")
                 }
                 res.status(500).send("user not inserted into database")

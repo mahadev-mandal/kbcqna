@@ -30,7 +30,6 @@ const saveQuestion = async (req, res) => {
             .then((q) => {
                 res.status(200).json(q)
             }).catch((err) => {
-                console.log(err);
                 res.status(500).send("question not inserted into database")
             })
 

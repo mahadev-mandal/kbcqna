@@ -15,7 +15,6 @@ export default async function login(req, res) {
             res.status(403).json({ errorMessage: "email or password is incorrect" })
         }
     } catch (err) {
-        console.log(err)
         res.status(403).json({ errorMessage: "something went wrong" })
 
     }
