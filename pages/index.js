@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
 function Content() {
   return (
-    <>
+    <div style={{padding:5}}>
       <Typography variant='h6' style={{textAlign:'center'}}>
         Welcome to KBCQNA
       </Typography>
@@ -25,7 +25,7 @@ function Content() {
       <Typography variant='body2' component='p'>
         This website contains almost all of the Questions that are asked in this television show except questions which include videos, photos, and audio clip.
       </Typography>
-    </>
+    </div>
   )
 }
 

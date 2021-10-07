@@ -15,6 +15,8 @@ const useStyles = makeStyles({
         marginTop: 15,
         color: 'white',
         fontSize: 13,
+        marginLeft:-5,
+        marginRight:-15,
     },
     social: {
         '& a': {

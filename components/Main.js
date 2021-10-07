@@ -1,4 +1,5 @@
-import { Container, Divider, Grid, Typography } from '@material-ui/core'
+import {  Divider, Grid,  Typography } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react'
 import { makeStyles } from '@material-ui/core';
 import QuesList from './QuesList';
@@ -7,6 +8,7 @@ import getPopularQues from '../controllers/getPopularQues'
 import { apiBaseUrl } from '../helpers/constants';
 import Footer from './Footer';
 import Heading from './Heading';
+import theme from './Theme';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,7 +38,12 @@ function Main({ mainContent }) {
     if (populars) {
         return (
             <>
-                <Container maxWidth="lg" className={classes.root}>
+                {/* <ThemeProvider theme={theme}>
+                    <Typography >
+                        hello
+                    </Typography>
+                </ThemeProvider> */}
+                <div maxWidth="lg" className={classes.root}>
                     <Heading />
                     <Grid container spacing={5} >
                         <Grid item xs={12} md={8}>
@@ -65,7 +72,7 @@ function Main({ mainContent }) {
                         </Grid>
                     </Grid>
                     <Footer />
-                </Container>
+                </div>
             </>
         )
     } else if (error) {

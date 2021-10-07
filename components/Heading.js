@@ -10,6 +10,8 @@ const useStyles = makeStyles((theme) => ({
         position: 'sticky',
         top: 0,
         zIndex: 1,
+        marginLeft:-5,
+        marginRight:-15,
         marginBottom:20,
     },
     logo: {
@@ -35,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
     },
     active: {
         color: 'black',
-        background: '#e4e4e4'
+        background: '#e4e4e4',
+        height:'100%'
     }
 
 }))
@@ -43,8 +46,8 @@ const nav = [
     { name: 'Home', link: '/' },
     { name: 'Contact us', link: '/contactus' },
     { name: 'About Us', link: '/aboutus' },
-    { name: 'Privacy policy', link: '/privacy-policy' },
-    { name: 'Terms & conditions', link: '/terms-conditions' },
+    // { name: 'Privacy policy', link: '/privacy-policy' },
+    // { name: 'Terms & conditions', link: '/terms-conditions' },
 ]
 function Heading() {
     const classes = useStyles();
