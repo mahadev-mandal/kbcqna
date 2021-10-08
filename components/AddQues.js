@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import { mainSchema } from '../utils/validationSchema'
 import axios from 'axios'
 import { apiBaseUrl } from '../helpers/constants'
+import Cookies from 'js-cookie'
 
 const textField = [
     { label: 'question', type: 'text' },
@@ -16,7 +17,7 @@ const initialValues = {
     question: '',
     season: '',
     episode: '',
-    author: '',
+    author: 'mahadev',
     correctOption: '',
     wrongOption1: '',
     wrongOption2: '',
@@ -26,11 +27,10 @@ const initialValues = {
 export default function AddQues() {
 
     const [sucess, setSucess] = useState(false)
-
     const { handleChange, handleSubmit, handleBlur, values, errors, touched, resetForm } = useFormik({
         initialValues: initialValues,
         validationSchema: mainSchema,
-        async onSubmit(values) {
+        async onSubmit(values, { resetForm }) {
             var options = [values.wrongOption1, values.wrongOption2, values.wrongOption3]
             // insert correct option at random position
             Array.prototype.insert = function (index, item) {
@@ -39,9 +39,22 @@ export default function AddQues() {
             const randomPos = Math.floor(Math.random() * 4)
             options.insert(randomPos, values.correctOption);
 
-            await axios.post(`${apiBaseUrl}/api/question`, {...values,options:options}).then((res) => {
+            await axios.post(`${apiBaseUrl}/api/question`, { ...values, options: options }).then((res) => {
                 setSucess(true)
-                resetForm()
+                resetForm({
+                    values: {
+                        question: '',
+                        season: values.season,
+                        episode: values.episode,
+                        author: 'mahadev',
+                        correctOption: '',
+                        wrongOption1: '',
+                        wrongOption2: '',
+                        wrongOption3: '',
+
+                    }
+                })
+                document.getElementById('question').focus()
             }).catch((err) => {
                 console.log(err)
             })
@@ -60,11 +73,13 @@ export default function AddQues() {
                     label={field.label}
                     id={field.label}
                     type={field.type}
+                    disabled={field.label === 'author' ? true : false}
                     autoComplete='off'
                     style={{ margin: 8, textTransform: 'capitalize' }}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     onClick={handleClick}
+
                     value={values[field.label]}
                     helperText={errors[field.label] && touched[field.label] ? errors[field.label] : null}
                     error={errors[field.label] && touched[field.label] ? true : false}

@@ -3,20 +3,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
-import { capitalize, Grid, Paper, Typography } from '@material-ui/core';
+import { capitalize, Grid, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-        margin: theme.spacing(3),
+        marginLeft: theme.spacing(3),
+        marginRight: theme.spacing(3),
+        marginBottom:theme.spacing(3)
+        
     },
     button: {
         margin: theme.spacing(1, 1, 0, 0),
     },
     li: {
         marginBottom: 10,
-        textTransform:'capitalize',
         fontSize:16
     },
     helperText: {
@@ -42,16 +44,14 @@ export default function QuesAns({ ques }) {
                 component="fieldset"
                 className={classes.formControl}
             >
-                <Grid container spacing={1} >
-                    <Grid item xs={1}>
-                        <StarIcon />
-                    </Grid>
-                    <Grid item xs={11}>
-                        <Typography variant='h5' component="h1" >
-                            {ques.question}
-                        </Typography>
-                    </Grid>
-                </Grid>
+                <ListItem alignItems='flex-start' style={{marginLeft:-20,marginBottom:-15,}}>
+                    <ListItemIcon>
+                        <StarIcon/>
+                    </ListItemIcon>
+                    <Typography style={{marginLeft:-20}} variant='h6' component='h1'>
+                    {ques.question}
+                    </Typography>
+                </ListItem>
                 <div style={{ marginLeft: 15 }}>
                     <ol type="A">
                         {ques.options.map((option) => (
