@@ -3,7 +3,6 @@ import questionModel from '../../../models/QuestionsSchema'
 
 db_conn();
 export default function question(req, res) {
-    console.log(req.method)
     switch (req.method) {
         case "GET":
             getQuestion(req, res);

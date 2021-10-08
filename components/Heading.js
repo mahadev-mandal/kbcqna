@@ -52,7 +52,6 @@ const nav = [
 function Heading() {
     const classes = useStyles();
     const router = useRouter();
-    console.log(router.pathname)
     return (
         <div className={classes.heading}>
             <div className={classes.logo}>
