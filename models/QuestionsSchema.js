@@ -19,6 +19,9 @@ const questionsSchema = new mongoose.Schema({
     episode: {
         type: Number
     },
+    questionNo:{
+        type:Number
+    },
     date: {
         type: Date,
         default: Date.now

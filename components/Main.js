@@ -5,10 +5,9 @@ import { makeStyles } from '@material-ui/core';
 import QuesList from './QuesList';
 import useSWR from 'swr';
 import getPopularQues from '../controllers/getPopularQues'
-import { apiBaseUrl } from '../helpers/constants';
+import { baseURL } from '../helpers/constants';
 import Footer from './Footer';
 import Heading from './Heading';
-import theme from './Theme';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Main({ mainContent }) {
     const classes = useStyles()
-    const { data: populars, error } = useSWR(`${apiBaseUrl}/api/questions/populars`, getPopularQues)
+    const { data: populars, error } = useSWR(`${baseURL}/api/questions/populars`, getPopularQues)
 
 
     return (

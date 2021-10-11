@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select';
 import { useFormik } from 'formik';
 import { usrSchema } from '../utils/validationSchema'
 import axios from 'axios';
-import { apiBaseUrl } from '../helpers/constants';
+import { baseURL } from '../helpers/constants';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -34,7 +34,7 @@ export default function AddUser() {
         validationSchema: usrSchema,
         async onSubmit() {
             console.log('ekek')
-            await axios.post(`${apiBaseUrl}}/api/user`, { ...values, role: role })
+            await axios.post(`${baseURL}}/api/user`, { ...values, role: role })
                 .then((res) => {
                     setMessage("User added sucessfully")
                     setColor("green")

@@ -53,10 +53,9 @@ function AdminNavbar() {
     const router = useRouter();
 
     const handleLogout = () => {
-        if (Cookies.remove('jwt')) {
-            router.push('/');
-        } else {
-            console.log("something went wrong")
+        Cookies.remove('jwt')
+        if(!Cookies.get('jwt')){
+            router.replace('/')
         }
     }
 

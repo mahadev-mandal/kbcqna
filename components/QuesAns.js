@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
-import { capitalize, Grid, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@material-ui/core';
+import {  ListItem, ListItemIcon, Typography,Paper } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 
 

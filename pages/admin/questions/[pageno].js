@@ -1,7 +1,7 @@
 import React from 'react'
 import MiniDrawer from '../../../components/Drawer'
 import MyTable from '../../../components/Table'
-import { apiBaseUrl } from '../../../helpers/constants'
+import { baseURL } from '../../../helpers/constants'
 import withAuth from '../../../HOC/withAuth'
 
 export function getServerSideProps(context) {
@@ -11,7 +11,7 @@ export function getServerSideProps(context) {
 }
 
 const tableHead = [
-    'question', 'correctOption', 'episode', 'season', 'author'
+    'question', 'correctOption', 'season', 'episode','questionNo', 'author'
 ]
 
 function Questions({ params }) {
@@ -20,10 +20,10 @@ function Questions({ params }) {
         <div>
             <MiniDrawer comp={<MyTable
                 pageno={pageno}
-                apiUrl={`${apiBaseUrl}/api/questions`}
-                totalApiUrl={`${apiBaseUrl}/api/totalquestions`}
-                addDataUrl={`${apiBaseUrl}/admin/addquestion`}
-                deleteApiUrl={`${apiBaseUrl}/api/question`}
+                apiUrl={`${baseURL}/api/questions`}
+                totalApiUrl={`${baseURL}/api/totalquestions`}
+                addDataUrl={`${baseURL}/admin/addquestion`}
+                deleteApiUrl={`${baseURL}/api/question`}
                 tableHead={tableHead} />}
                 drawerTitle='Questions'
             />

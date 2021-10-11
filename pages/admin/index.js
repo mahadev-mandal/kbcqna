@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { loginSchema } from '../../utils/validationSchema';
@@ -12,7 +12,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import { blue } from '@material-ui/core/colors';
 import { useFormik } from 'formik';
 import axios from 'axios';
-import { apiBaseUrl } from '../../helpers/constants';
+import { baseURL } from '../../helpers/constants';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,13 +49,18 @@ function LoginPage({ isAuth }) {
         },
         validationSchema: loginSchema,
         async onSubmit(values) {
-            await axios.post(`${apiBaseUrl}/api/login`, values)
+            await axios.post(`${baseURL}/api/login`, values)
                 .then((res) => {
                     Cookies.set('jwt',res.data.token)
                     router.push('/admin/dashboard')
                 }).catch((err) => {
                     setMessage(err.response.data.errorMessage)
                 })
+        }
+    })
+    useEffect(()=>{
+        if(Cookies.get('jwt')){
+            router.push('/admin/dashboard')
         }
     })
 

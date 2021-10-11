@@ -3,11 +3,11 @@ import React from 'react'
 import Main from '../../components/Main'
 import QuesAns from '../../components/QuesAns';
 import Head from 'next/head';
-import { apiBaseUrl } from '../../helpers/constants';
+import { baseURL } from '../../helpers/constants';
 import { useRouter } from 'next/router'
 
 export async function getStaticPaths() {
-    const res = await axios.get(`${apiBaseUrl}/api/questions/populars`);
+    const res = await axios.get(`${baseURL}/api/questions/populars`);
     const popularQues = await res.data
     const paths = popularQues.map((ques) => ({
         params: { qid: ques._id }
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await axios.get(`${apiBaseUrl}/api/question/${params.qid}`)
+    const res = await axios.get(`${baseURL}/api/question/${params.qid}`)
     const ques = await res.data
     return {
         props: { ques }

@@ -14,7 +14,7 @@ export default function question(req, res) {
 }
 
 const saveQuestion = async (req, res) => {
-    const { question, episode, season, author, correctOption, options } = req.body;
+    const { question, episode, season, author, correctOption, options,questionNo } = req.body;
     if (!question || !author || !correctOption) {
         res.status(422).json({ error: "Please fill all required fields" });
     } else {
@@ -24,7 +24,8 @@ const saveQuestion = async (req, res) => {
             season,
             author,
             correctOption,
-            options
+            options,
+            questionNo,
         })
         await ques.save()
             .then((q) => {

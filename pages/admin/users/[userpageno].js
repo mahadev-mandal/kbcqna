@@ -3,7 +3,7 @@ import MiniDrawer from '../../../components/Drawer'
 import { useRouter } from 'next/router'
 import MyTable from '../../../components/Table'
 import withAuth from '../../../HOC/withAuth'
-import { apiBaseUrl } from '../../../helpers/constants'
+import { baseURL } from '../../../helpers/constants'
 
 export function getServerSideProps(context) {
     return {
@@ -23,10 +23,10 @@ function Users({ params }) {
         <div>
             <MiniDrawer comp={<MyTable
                 pageno={userpageno}
-                apiUrl={`${apiBaseUrl}/api/users`}
-                totalApiUrl={`${apiBaseUrl}/api/totalusers`}
-                addDataUrl={`${apiBaseUrl}/admin/adduser`}
-                deleteApiUrl={`${apiBaseUrl}/api/user`}
+                apiUrl={`${baseURL}/api/users`}
+                totalApiUrl={`${baseURL}/api/totalusers`}
+                addDataUrl={`${baseURL}/admin/adduser`}
+                deleteApiUrl={`${baseURL}/api/user`}
                 tableHead={tableHead} />}
                 drawerTitle='Users'
             />

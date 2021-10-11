@@ -3,14 +3,14 @@ import { Button, Grid, TextField, Typography } from '@material-ui/core'
 import { useFormik } from 'formik'
 import { mainSchema } from '../utils/validationSchema'
 import axios from 'axios'
-import { apiBaseUrl } from '../helpers/constants'
-import Cookies from 'js-cookie'
+import { baseURL } from '../helpers/constants'
 
 const textField = [
     { label: 'question', type: 'text' },
     { label: 'season', type: 'number' },
     { label: 'episode', type: 'number' },
     { label: 'author', type: 'text' },
+    { label: 'questionNo', type: 'number' },
 ]
 
 const initialValues = {
@@ -18,6 +18,7 @@ const initialValues = {
     season: '',
     episode: '',
     author: 'mahadev',
+    questionNo: '',
     correctOption: '',
     wrongOption1: '',
     wrongOption2: '',
@@ -39,7 +40,7 @@ export default function AddQues() {
             const randomPos = Math.floor(Math.random() * 4)
             options.insert(randomPos, values.correctOption);
 
-            await axios.post(`${apiBaseUrl}/api/question`, { ...values, options: options }).then((res) => {
+            await axios.post(`${baseURL}/api/question`, { ...values, options: options }).then((res) => {
                 setSucess(true)
                 resetForm({
                     values: {
@@ -47,6 +48,7 @@ export default function AddQues() {
                         season: values.season,
                         episode: values.episode,
                         author: 'mahadev',
+                        questionNo: values.questionNo === '' ? '' : values.questionNo + 1,
                         correctOption: '',
                         wrongOption1: '',
                         wrongOption2: '',
@@ -86,6 +88,7 @@ export default function AddQues() {
                 />
 
             ))}
+
             <Grid container spacing={1} style={{ margin: 4 }}>
                 <Grid item xs={12} md={6} lg={3}>
                     <TextField fullWidth
