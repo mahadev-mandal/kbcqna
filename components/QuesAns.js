@@ -3,25 +3,24 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
-import {  ListItem, ListItemIcon, Typography,Paper } from '@material-ui/core';
+import { ListItem, ListItemIcon, Typography, Paper } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-        marginLeft: theme.spacing(3),
-        marginRight: theme.spacing(1),
-        marginBottom:theme.spacing(3)
-        
+
+
     },
     button: {
-        margin: theme.spacing(1, 1, 0, 0),
+        marginLeft:18
     },
     li: {
         marginBottom: 10,
-        fontSize:16
+        fontSize: 16
     },
     helperText: {
+        marginLeft:20,
         fontSize: 14,
         fontWeight: 'bold',
         textTransform: 'capitalize'
@@ -34,25 +33,25 @@ export default function QuesAns({ ques }) {
     const handleClick = () => {
         setShow(!show)
     };
-    useEffect(()=>{
+    useEffect(() => {
         setShow(false)
-    },[ques])
+    }, [ques])
 
     return (
-        <Paper>
+        <Paper style={{ padding:'10px 10px 10px 0' }}>
             <FormControl
                 component="fieldset"
                 className={classes.formControl}
             >
-                <ListItem alignItems='flex-start' style={{marginLeft:-20,marginBottom:-15,}}>
+                <ListItem alignItems='flex-start' style={{  marginBottom: -15, }}>
                     <ListItemIcon>
-                        <StarIcon/>
+                        <StarIcon />
                     </ListItemIcon>
-                    <Typography style={{marginLeft:-20}} variant='h6' component='h1'>
-                    {ques.question}
+                    <Typography style={{ marginLeft: -23 }} variant='h6' component='h1'>
+                        {ques.question}
                     </Typography>
                 </ListItem>
-                <div style={{ marginLeft: 15 }}>
+                <div style={{ paddingLeft:27 }}>
                     <ol type="A">
                         {ques.options.map((option) => (
                             <li key={option} className={classes.li}>{option}</li>
