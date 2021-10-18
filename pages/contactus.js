@@ -5,8 +5,8 @@ import Footer from '../components/Footer'
 import Heading from '../components/Heading'
 const useStyles = makeStyles((theme) => ({
     root:{
-        marginRight:5,
-        marginLeft:5,
+        marginRight:10,
+        marginLeft:10,
         [theme.breakpoints.up('md')]:{
             marginLeft:60,
             marginRight:60,

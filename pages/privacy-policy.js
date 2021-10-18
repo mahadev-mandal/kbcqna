@@ -6,8 +6,8 @@ import Footer from '../components/Footer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 10,
+        marginRight: 10,
         marginTop: 20,
         [theme.breakpoints.up('md')]: {
             marginLeft: 60,
