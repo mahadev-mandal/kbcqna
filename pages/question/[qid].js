@@ -29,10 +29,12 @@ function Question({ ques }) {
     if (router.isFallback) {
         return <div>Loading...</div>
     }
+    
     return (
         <div>
             <Head >
                 <title>{ques.question}</title>
+                <meta name="description" content={ques.options.toString()} />
             </Head>
             <Main
                 mainContent={<QuesAns ques={ques} />}

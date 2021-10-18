@@ -10,7 +10,7 @@ import StarIcon from '@material-ui/icons/Star';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         marginLeft: theme.spacing(3),
-        marginRight: theme.spacing(3),
+        marginRight: theme.spacing(1),
         marginBottom:theme.spacing(3)
         
     },
