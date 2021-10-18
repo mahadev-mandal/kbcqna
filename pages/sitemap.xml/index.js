@@ -37,7 +37,6 @@ export const getServerSideProps = async ({ res }) => {
                 return `
                     <url>
                         <loc>${url}</loc>
-                        <lastmod>${new Date().toISOString()}</lastmod>
                         <changefreq>monthly</changefreq>
                         <priority>1.0</priority>
                     </url>`;
@@ -46,10 +45,9 @@ export const getServerSideProps = async ({ res }) => {
             ${dynamicPages.map(({ _id, date }) => {
                 return `
                     <url>
-                    <loc>${baseURL}/question/${_id}</loc>
-                        <lastmod>${new Date(date).toString()}</lastmod>
-
-                        <priority>1.0</priority>
+                        <loc>${baseURL}/question/${_id}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.90</priority>
                     </url>`;
             }).join("")}
 
