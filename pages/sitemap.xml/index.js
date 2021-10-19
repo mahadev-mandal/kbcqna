@@ -1,5 +1,5 @@
 import axios from 'axios';
-import fs from 'fs'
+//import fs from 'fs'
 import { baseURL } from "../../helpers/constants";
 
 //https://cheatcode.co/tutorials/how-to-generate-a-dynamic-sitemap-with-next-js open this link to know more about how to create sitemap in next.js
@@ -10,33 +10,16 @@ const SitemapXml = () => { };
 export const getServerSideProps = async ({ res }) => {
     
     const resData = await axios.get(`${baseURL}/api/questions`);
-    const dynamicPages=await resData.data
+    const dynamicPages=await resData.data;
     
-    const staticPages = fs
-        .readdirSync({
-            development: 'pages',
-            production: './',
-        }[process.env.NODE_ENV])
-        .filter((staticPage) => {
-            return ![
-                "_app.js",
-                "_document.js",
-                "_error.js",
-                "sitemap.xml",
-                "admin",
-                "api",
-            ].includes(staticPage);
-        })
-        .map((staticPagePath) => {
-            return `${baseURL}/${staticPagePath}`;
-        });
+    const staticPages = ['','aboutus','contactus','privacy-policy','terms-conditions'];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            ${staticPages.map((url) => {
+            ${staticPages.map((page) => {
                 return `
                     <url>
-                        <loc>${url}</loc>
+                        <loc>${baseURL}/${page}</loc>
                         <changefreq>monthly</changefreq>
                         <priority>1.0</priority>
                     </url>`;
