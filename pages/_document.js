@@ -11,14 +11,22 @@ export default class MyDocument extends Document {
           {/* google search console */}
           <meta name="google-site-verification" content="d4WDvavE6o6YacQgWn4vefmFO-r3JTSk3vL2AyRtTBY" />
           {/* Global site tag (gtag.js) - Google Analytics  */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KB9YC31ZX"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments)}
-            gtag('js', new Date());
-
-            gtag('config', 'G-3KB9YC31ZX');
-          </script>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-3KB9YC31ZX"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-3KB9YC31ZX', {
+                  page_path: window.location.pathname,
+                });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />
