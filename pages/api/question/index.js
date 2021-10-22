@@ -15,17 +15,16 @@ export default function question(req, res) {
 
 const saveQuestion = async (req, res) => {
     var { question, episode, season, author, correctOption, options, questionNo, keywords } = req.body;
-    keywords = keywords.replace(/\s+/g, "").toLowerCase();
 
-    let slug = "";
+    let slug = keywords.replace(/\s+/g, "").toLowerCase();
     if (season && episode) {
         if (questionNo) {
-            slug = `${keywords.replace(/,/g, "-")}-s${season}-e${episode}-n${questionNo}`
+            slug = `${slug.replace(/,/g, "-")}-s${season}-e${episode}-n${questionNo}`
         } else {
-            slug = `${keywords.replace(/,/g, "-")}-s${season}-e${episode}`
+            slug = `${slug.replace(/,/g, "-")}-s${season}-e${episode}`
         }
     } else {
-        slug = keywords.replace(/,/g, "-");
+        slug = slug.replace(/,/g, "-");
     }
 
     if (!question || !author || !correctOption) {
