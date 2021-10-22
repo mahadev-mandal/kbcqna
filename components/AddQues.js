@@ -7,6 +7,7 @@ import { baseURL } from '../helpers/constants'
 
 const textField = [
     { label: 'question', type: 'text' },
+    { label: 'keywords', type: 'text' },
     { label: 'season', type: 'number' },
     { label: 'episode', type: 'number' },
     { label: 'author', type: 'text' },
@@ -18,6 +19,7 @@ const initialValues = {
     season: '',
     episode: '',
     author: 'mahadev',
+    keywords: '',
     questionNo: '',
     correctOption: '',
     wrongOption1: '',
@@ -27,7 +29,9 @@ const initialValues = {
 
 export default function AddQues() {
 
-    const [sucess, setSucess] = useState(false)
+    const [err, setErr] = useState(false);
+    const [message, setMessage] = useState("");
+
     const { handleChange, handleSubmit, handleBlur, values, errors, touched, resetForm } = useFormik({
         initialValues: initialValues,
         validationSchema: mainSchema,
@@ -41,7 +45,8 @@ export default function AddQues() {
             options.insert(randomPos, values.correctOption);
 
             await axios.post(`${baseURL}/api/question`, { ...values, options: options }).then((res) => {
-                setSucess(true)
+                setErr(false);
+                setMessage("Added sucessfully");
                 resetForm({
                     values: {
                         question: '',
@@ -53,17 +58,19 @@ export default function AddQues() {
                         wrongOption1: '',
                         wrongOption2: '',
                         wrongOption3: '',
+                        keywords: '',
 
                     }
                 })
                 document.getElementById('question').focus()
             }).catch((err) => {
-                console.log(err)
+                setMessage(err.response.data.errorMessage)
+                setErr(true)
             })
         }
     })
     const handleClick = () => {
-        setSucess(false)
+        setMessage("")
     }
 
     return (
@@ -155,7 +162,7 @@ export default function AddQues() {
             >
                 Add Question
             </Button>
-            <Typography style={{ color: 'green' }} variant='subtitle2' >{sucess ? "Added sucessfully" : null}</Typography>
+            <Typography style={{ color: err ? "red" : "green" }} variant='subtitle2' >{message}</Typography>
         </>
     )
 }

@@ -19,8 +19,19 @@ const questionsSchema = new mongoose.Schema({
     episode: {
         type: Number
     },
-    questionNo:{
-        type:Number
+    questionNo: {
+        type: Number
+    },
+    keywords: {
+        type: String,
+        required:true,
+        unique: true,
+    },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+        index: true,
     },
     date: {
         type: Date,

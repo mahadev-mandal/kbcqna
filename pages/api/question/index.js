@@ -14,7 +14,20 @@ export default function question(req, res) {
 }
 
 const saveQuestion = async (req, res) => {
-    const { question, episode, season, author, correctOption, options,questionNo } = req.body;
+    var { question, episode, season, author, correctOption, options, questionNo, keywords } = req.body;
+    keywords = keywords.replace(/\s+/g, "").toLowerCase();
+
+    let slug = "";
+    if (season & episode) {
+        if (questionNo) {
+            slug = `${keywords.replace(/,/g, "-")}-s${season}-e${episode}-n${questionNo}`
+        } else {
+            slug = `${keywords.replace(/,/g, "-")}-s${season}-e${episode}`
+        }
+    } else {
+        slug = keywords.replace(/,/g, "-");
+    }
+
     if (!question || !author || !correctOption) {
         res.status(422).json({ error: "Please fill all required fields" });
     } else {
@@ -23,15 +36,22 @@ const saveQuestion = async (req, res) => {
             episode,
             season,
             author,
+            keywords,
             correctOption,
             options,
             questionNo,
+            slug,
         })
         await ques.save()
             .then((q) => {
                 res.status(200).json(q)
             }).catch((err) => {
-                res.status(500).send("question not inserted into database")
+                if (err.keyPattern.keywords === 1) {
+                    res.status(403).json({ errorMessage: "same keywords already present" })
+                }else{
+                    res.status(500).json({ errorMessage: "something went wrong" })
+                }
+                console.log(err)
             })
 
     }

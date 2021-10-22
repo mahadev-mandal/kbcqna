@@ -10,13 +10,13 @@ export async function getStaticPaths() {
     const res = await axios.get(`${baseURL}/api/questions/populars`);
     const popularQues = await res.data
     const paths = popularQues.map((ques) => ({
-        params: { qid: ques._id }
+        params: { slug: ques.slug }
     }))
     return { paths, fallback: true }
 }
 
 export async function getStaticProps({ params }) {
-    const res = await axios.get(`${baseURL}/api/question/${params.qid}`)
+    const res = await axios.get(`${baseURL}/api/question/${params.slug}`)
     const ques = await res.data
     return {
         props: { ques }

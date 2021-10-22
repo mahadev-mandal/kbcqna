@@ -34,7 +34,7 @@ export default function AddUser() {
         validationSchema: usrSchema,
         async onSubmit() {
             console.log('ekek')
-            await axios.post(`${baseURL}}/api/user`, { ...values, role: role })
+            await axios.post(`${baseURL}/api/user`, { ...values, role: role,unique:"abc" })
                 .then((res) => {
                     setMessage("User added sucessfully")
                     setColor("green")

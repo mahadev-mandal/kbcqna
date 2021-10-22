@@ -14,8 +14,8 @@ export default function question(req, res) {
 }
 
 const deleteQuestion = async (req, res) => {
-    const { qid } = req.query;
-    await questionModel.findByIdAndDelete(qid)
+    const { slug } = req.query;
+    await questionModel.findByIdAndDelete(slug)
         .then((ques) => {
             res.status(200).json(ques)
         }).catch((err) => {
@@ -24,10 +24,10 @@ const deleteQuestion = async (req, res) => {
 }
 const getQuestion = async (req, res) => {
     try {
-        const { qid } = req.query;
-        const ques = await questionModel.findById(qid)
+        const { slug } = req.query;
+        const ques = await questionModel.findOne({slug})
         res.status(200).json(ques)
     }catch(err){
-        res.status(404).json({error:"failed to find question"})
+        res.status(404).json({errorMessage:"failed to find question"})
     }
 }

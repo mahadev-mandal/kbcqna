@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'sticky',
         top: 0,
         zIndex: 1,
-        marginLeft:-5,
+        marginLeft:-15,
         marginRight:-15,
         marginBottom:20,
     },
@@ -20,10 +20,9 @@ const useStyles = makeStyles((theme) => ({
 
     },
     navbar: {
-        color: 'white',
         background: 'blue',
         height: 38,
-
+        color:'white',
         '& a': {
             display: 'inline-block',
             padding: '8px 10px',
@@ -31,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
             '&:hover': {
                 color: 'black',
                 background: '#e4e4e4',
-
+                height:'58%'
             }
         }
     },
     active: {
         color: 'black',
         background: '#e4e4e4',
-        height:'100%'
+        height:'58%'
     }
 
 }))

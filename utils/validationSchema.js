@@ -11,6 +11,7 @@ export const mainSchema = yup.object().shape({
     episode: yup.number().required('This field is required').min(1),
     season: yup.number().required('This field is required').min(1),
     author: yup.string().required('This field is required'),
+    keywords:yup.string().required('this field is required'),
     questionNo:yup.number().min(1),
     correctOption: yup.string().required('This field is required'),
     wrongOption1:yup.string(),
