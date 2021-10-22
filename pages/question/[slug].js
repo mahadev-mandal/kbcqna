@@ -36,6 +36,7 @@ function Question({ ques }) {
             <Head >
                 <title>{ques.question}</title>
                 <meta name="description" content={ques.options.toString()} />
+                <meta name="keywords" content={ques.keywords} />
             </Head>
             <Main
                 mainContent={<QuesAns ques={ques} />}
