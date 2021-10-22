@@ -30,7 +30,7 @@ export const getServerSideProps = async ({ res }) => {
                     <url>
                         <loc>${baseURL}/question/${_id}</loc>
                         <changefreq>daily</changefreq>
-                        <priority>0.90</priority>
+                        <priority>0.69</priority>
                     </url>`;
             }).join("")}
 

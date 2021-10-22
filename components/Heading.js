@@ -30,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
             '&:hover': {
                 color: 'black',
                 background: '#e4e4e4',
-                height:'58%'
+                height:'100%'
             }
         }
     },
     active: {
         color: 'black',
         background: '#e4e4e4',
-        height:'58%'
+        height:'100%'
     }
 
 }))
