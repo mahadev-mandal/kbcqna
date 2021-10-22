@@ -18,7 +18,7 @@ const saveQuestion = async (req, res) => {
     keywords = keywords.replace(/\s+/g, "").toLowerCase();
 
     let slug = "";
-    if (season & episode) {
+    if (season && episode) {
         if (questionNo) {
             slug = `${keywords.replace(/,/g, "-")}-s${season}-e${episode}-n${questionNo}`
         } else {
