@@ -25,10 +25,10 @@ export const getServerSideProps = async ({ res }) => {
                     </url>`;
             }).join("")}
            
-            ${dynamicPages.map(({ _id, date }) => {
+            ${dynamicPages.map(({ slug }) => {
                 return `
                     <url>
-                        <loc>${baseURL}/question/${_id}</loc>
+                        <loc>${baseURL}/question/${slug}</loc>
                         <changefreq>daily</changefreq>
                         <priority>0.69</priority>
                     </url>`;
