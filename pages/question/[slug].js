@@ -6,18 +6,18 @@ import Head from 'next/head';
 import { baseURL } from '../../helpers/constants';
 import { useRouter } from 'next/router'
 
-// export async function getStaticPaths() {
-//     const res = await axios.get(`${baseURL}/api/questions/populars`);
-//     const popularQues = await res.data
-//     const paths = popularQues.map((ques) => ({
-//         params: { slug: ques.question }
-//     }))
-//     console.log(paths)
-//     return { paths, fallback: true }
-// }
+export async function getStaticPaths() {
+    const res = await axios.get(`${baseURL}/api/questions/populars`);
+    const popularQues = await res.data
+    const paths = popularQues.map((ques) => ({
+        params: { slug: ques.slug }
+    }))
+    console.log(paths)
+    return { paths, fallback: true }
+}
 
-export async function getServerSideProps({ params }) {
-    const res = await axios.get(`${baseURL}/api/question/river-passes-marble-stone-bhedghat-madhya-pradesh`)
+export async function getStaticProps({ params }) {
+    const res = await axios.get(`${baseURL}/api/question/${params.slug}`)
     const ques = await res.data
     return {
         props: { ques }
