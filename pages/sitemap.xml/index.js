@@ -20,7 +20,7 @@ export const getServerSideProps = async ({ res }) => {
                 return `
                     <url>
                         <loc>${baseURL}/${page}</loc>
-                        <changefreq>monthly</changefreq>
+                        <changefreq>daily</changefreq>
                         <priority>1.0</priority>
                     </url>`;
             }).join("")}

@@ -59,6 +59,7 @@ function MyTable({ pageno, apiUrl, totalApiUrl, deleteApiUrl, addDataUrl, tableH
 
     const { data, error: error1 } = useSWR(`${apiUrl}/${page}`, fetchData);
     const { data: total, error: error2 } = useSWR(totalApiUrl, fetchTotal);
+    
 
     const handlePageChange = (event, newPage) => {
         setPage(newPage)
