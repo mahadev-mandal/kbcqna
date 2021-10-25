@@ -63,7 +63,9 @@ function LoginPage({ isAuth }) {
             router.push('/admin/dashboard')
         }
     })
-
+    const resetError = ()=>{
+        setMessage("")
+    }
     return (
         <div>
             <Grid container  >
@@ -83,6 +85,7 @@ function LoginPage({ isAuth }) {
                             id='email'
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            onKeyDown={resetError}
                             value={values.email}
                             error={errors.email && touched.email ? true : false}
                             helperText={errors.email && touched.email ? errors.email : null}
@@ -93,6 +96,7 @@ function LoginPage({ isAuth }) {
                             id='password'
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            onKeyDown={resetError}
                             value={values.password}
                             error={errors.password && touched.password ? true : false}
                             helperText={errors.password && touched.password ? errors.password : null}

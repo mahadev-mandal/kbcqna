@@ -12,7 +12,6 @@ export async function getStaticPaths() {
     const paths = popularQues.map((ques) => ({
         params: { slug: ques.slug }
     }))
-    console.log(paths)
     return { paths, fallback: true }
 }
 

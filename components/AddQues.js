@@ -69,7 +69,7 @@ export default function AddQues() {
             })
         }
     })
-    const handleClick = () => {
+    const resetMessage = () => {
         setMessage("")
     }
 
@@ -87,8 +87,7 @@ export default function AddQues() {
                     style={{ margin: 8, textTransform: 'capitalize' }}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    onClick={handleClick}
-
+                    onKeyDown={resetMessage}
                     value={values[field.label]}
                     helperText={errors[field.label] && touched[field.label] ? errors[field.label] : null}
                     error={errors[field.label] && touched[field.label] ? true : false}
@@ -106,7 +105,7 @@ export default function AddQues() {
                         autoComplete='off'
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        onClick={handleClick}
+                        onKeyDown={resetMessage}
                         helperText={errors.wrongOption1 && touched.wrongOption1 ? errors.wrongOption1 : null}
                         error={errors.wrongOption1 && touched.wrongOption1 ? true : false}
                     />
@@ -120,7 +119,7 @@ export default function AddQues() {
                         value={values.wrongOption2}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        onClick={handleClick}
+                        onKeyDown={resetMessage}
                         helperText={errors.wrongOption2 && touched.wrongOption2 ? errors.wrongOption2 : null}
                         error={errors.wrongOption2 && touched.wrongOption2 ? true : false}
                     />
@@ -134,7 +133,7 @@ export default function AddQues() {
                         value={values.wrongOption3}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        onClick={handleClick}
+                        onKeyDown={resetMessage}
                         helperText={errors.wrongOption3 && touched.wrongOption3 ? errors.wrongOption3 : null}
                         error={errors.wrongOption3 && touched.wrongOption3 ? true : false}
                     />
@@ -148,7 +147,7 @@ export default function AddQues() {
                         value={values.correctOption}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        onClick={handleClick}
+                        onKeyDown={resetMessage}
                         helperText={errors.correctOption && touched.correctOption ? errors.correctOption : null}
                         error={errors.correctOption && touched.correctOption ? true : false}
                     />

@@ -12,7 +12,7 @@ export const getServerSideProps = async ({ res }) => {
     const resData = await axios.get(`${baseURL}/api/questions`);
     const dynamicPages=await resData.data;
     
-    const staticPages = ['','aboutus','contactus','privacy-policy','terms-conditions'];
+    const staticPages = [''];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

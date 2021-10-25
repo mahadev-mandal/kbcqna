@@ -1,5 +1,6 @@
 import userModel from '../../../models/userSchema'
 import db_conn from '../../../helpers/db_conn'
+import bcrypt from 'bcryptjs';
 
 
 db_conn();
@@ -19,11 +20,12 @@ const saveUser = async (req, res) => {
     if (!name || !email || !role || !password) {
         res.status(422).json({ error: "Please fill all required fields" });
     } else {
+        const hashedPassword = await bcrypt.hash(password,10)
         const usr = new userModel({
             name,
             email,
             role,
-            password,
+            password:hashedPassword,
         })
         await usr.save()
             .then((u) => {

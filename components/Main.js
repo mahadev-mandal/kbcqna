@@ -48,6 +48,9 @@ function Main({ mainContent }) {
                     <Grid item xs={12} md={8}>
                         <Grid item >
                             {mainContent}
+                            <Typography variant="caption" style={{marginTop:20,marginBottom:20}}>
+                                For any suggestion mail us to <i>kbcqna@gmail.com</i>
+                            </Typography>
                         </Grid>
                         <Grid item style={{ marginTop: 15 }} >
                             <Typography variant='h5' >
