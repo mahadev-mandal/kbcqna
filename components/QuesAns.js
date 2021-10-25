@@ -60,27 +60,27 @@ export default function QuesAns({ ques }) {
                 className={classes.formControl}
             >
                 <div className={classes.shareIcons}>
-                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}/${router.asPath}`} target="_blank">
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}/${router.asPath}`} target="_blank" rel="noreferrer">
                         <IconButton aria-label='facebook-icon' style={{ color: '#3b5998' }}>
                             <FacebookIcon />
                         </IconButton>
                     </a>
-                    <a href={`https://twitter.com/intent/tweet?text=${baseURL}/${router.asPath}`}target="_blank">
+                    <a href={`https://twitter.com/intent/tweet?text=${baseURL}/${router.asPath}`}target="_blank" rel="noreferrer">
                         <IconButton aria-label='twitter-icon' style={{ color: '#00acee' }}>
                             <TwitterIcon />
                         </IconButton>
                     </a>
-                    <a href={`whatsapp://send?text=${baseURL}/${router.asPath}`} target="_blank">
+                    <a href={`whatsapp://send?text=${baseURL}/${router.asPath}`} target="_blank" rel="noreferrer">
                         <IconButton aria-label='whatsapp-icon' style={{ color: '#25D366' }}>
                             <WhatsAppIcon />
                         </IconButton>
                     </a>
-                    <a href={`mailto:?subject=[I would like to share a link with you]&body=${baseURL}/${router.asPath}`} target="_blank">
+                    <a href={`mailto:?subject=[I would like to share a link with you]&body=${baseURL}/${router.asPath}`} target="_blank" rel="noreferrer">
                         <IconButton aria-label='email-icon' style={{ color: '#ff0000' }}>
                             <EmailIcon />
                         </IconButton>
                     </a>
-                    <a href={`https://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=${baseURL}/${router.asPath}`} target="_blank">
+                    <a href={`https://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=${baseURL}/${router.asPath}`} target="_blank" rel="noreferrer">
                         <IconButton aria-label='linkedIn-icon' style={{ color: '#0e76a8' }}>
                             <LinkedInIcon />
                         </IconButton>
