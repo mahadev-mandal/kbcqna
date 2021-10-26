@@ -5,13 +5,12 @@ import QuesList from './QuesList';
 import useSWR from 'swr';
 import getPopularQues from '../controllers/getPopularQues'
 import { baseURL } from '../helpers/constants';
-import Footer from './Footer';
 import DrawerLeft from './DrawerLeft';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginLeft: 10,
-        marginRight: 10,
+        // marginLeft: 10,
+        // marginRight: 10,
         [theme.breakpoints.up('md')]: {
             padding: '20px 60px'
         }
@@ -77,7 +76,6 @@ function Main({ mainContent }) {
                                 : 'loading...'}
                         </Grid>
                     </Grid>
-                    <Footer />
                 </div>
             </div>
         )} />

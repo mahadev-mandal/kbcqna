@@ -29,6 +29,7 @@ import PolicyIcon from '@material-ui/icons/Policy';
 import AcUnitIcon from '@material-ui/icons/AcUnit';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import Footer from './Footer'
 
 const drawerWidth = 240;
 
@@ -72,7 +73,10 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
-    background:'blue'
+    background:'blue',
+    '& *':{
+      color:'white',
+    }
   },
   content: {
     flexGrow: 1,
@@ -250,6 +254,7 @@ export default function DrawerLeft({ drawerContent }) {
           {drawerContent}
         </main>
       </div>
+      <Footer/>
     </>
   );
     

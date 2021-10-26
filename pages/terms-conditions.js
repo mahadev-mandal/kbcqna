@@ -1,13 +1,12 @@
 import { Typography } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import Footer from '../components/Footer';
 import DrawerLeft from '../components/DrawerLeft';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginLeft: 10,
-        marginRight: 10,
+        // marginLeft: 10,
+        // marginRight: 10,
         marginTop:20,
         [theme.breakpoints.up('md')]: {
             marginLeft: 60,
@@ -34,7 +33,6 @@ function TermsConditions() {
                     All logos, brands, marks headings, labels, names, signatures, numerals, shapes or any combinations thereof, appearing in this app, except as otherwise noted, are properties either owned, or used under licence, by KBCQNA. The use of these properties or any other content on this application, except as provided in these terms and conditions is strictly prohibited.
                     You may not sell or modify the content of this app  or reproduce, display, publicly perform, distribute, or otherwise use the materials in any way for any public or commercial purpose without KBCQNA or respective organisation’s or entity’s written permission.
                 </Typography>
-                <Footer />
             </div>
         )} />
     )

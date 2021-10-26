@@ -1,12 +1,11 @@
 import { makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
-import Footer from '../components/Footer'
 import DrawerLeft from '../components/DrawerLeft'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginLeft: 10,
-        marginRight: 10,
+        // marginLeft: 10,
+        // marginRight: 10,
         marginTop:20,
         [theme.breakpoints.up('md')]: {
             marginLeft: 60,
@@ -35,7 +34,6 @@ function Aboutus() {
                 <Typography variant='body2'>
                     Since it is a blog , there is not facility of editing the content by its users like we have in wikipedia and other wiki sites. However, when you find any error just leave your comment. We check that particular info and eliminate the error. Please note that the comments which indicate an error don’t get published. This is to avoid further discussions and confusion.
                 </Typography>
-                <Footer />
             </div>
         )} />
     )
