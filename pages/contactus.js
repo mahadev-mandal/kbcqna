@@ -2,14 +2,14 @@ import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import Footer from '../components/Footer'
-import Heading from '../components/Heading'
+import DrawerLeft from '../components/DrawerLeft'
 const useStyles = makeStyles((theme) => ({
-    root:{
-        marginRight:10,
-        marginLeft:10,
-        [theme.breakpoints.up('md')]:{
-            marginLeft:60,
-            marginRight:60,
+    root: {
+        marginRight: 10,
+        marginLeft: 10,
+        [theme.breakpoints.up('md')]: {
+            marginLeft: 60,
+            marginRight: 60,
         }
     },
     div1: {
@@ -36,28 +36,29 @@ const useStyles = makeStyles((theme) => ({
 function ContactUs() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <Heading />
-            <div className={classes.div1} >
-                <Typography variant='h6' >
-                    Connect With Us
-                </Typography>
-                <Typography variant='body2'>
-                    We will love to respond to your queries and help you succeed. Feel free to get in touch with us.
-                </Typography>
+        <DrawerLeft drawerContent={(
+            <div className={classes.root}>
+                <div className={classes.div1} >
+                    <Typography variant='h6' >
+                        Connect With Us
+                    </Typography>
+                    <Typography variant='body2'>
+                        We will love to respond to your queries and help you succeed. Feel free to get in touch with us.
+                    </Typography>
+                </div>
+                <div className={classes.div2}>
+                    <Typography variant='h6'>
+                        Reach Us
+                    </Typography>
+                    <Typography variant='body2'>
+                        <span>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kbcqna@example.com</span> <br />
+                        <span>phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xxxxxxxxxx</span><br />
+                        <span>Address:</span>
+                    </Typography>
+                </div>
+                <Footer />
             </div>
-            <div className={classes.div2}>
-                <Typography variant='h6'>
-                    Reach Us
-                </Typography>
-                <Typography variant='body2'>
-                    <span>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reachus@example.com</span> <br />
-                    <span>phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xxxxxxxxxx</span><br />
-                    <span>Address:</span>
-                </Typography>
-            </div>
-            <Footer />
-        </div>
+        )} />
     )
 }
 

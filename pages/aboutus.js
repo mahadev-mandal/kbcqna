@@ -1,15 +1,16 @@
-import { Container, makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
 import Footer from '../components/Footer'
-import Heading from '../components/Heading'
+import DrawerLeft from '../components/DrawerLeft'
 
 const useStyles = makeStyles((theme) => ({
     root: {
         marginLeft: 10,
         marginRight: 10,
+        marginTop:20,
         [theme.breakpoints.up('md')]: {
             marginLeft: 60,
-            marginRight:60,
+            marginRight: 60,
         },
     },
 }))
@@ -17,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
 function Aboutus() {
     const classes = useStyles();
     return (
-            <div  className={classes.root}>
-                <Heading />
+        <DrawerLeft drawerContent={(
+            <div className={classes.root}>
                 <Typography variant='body2' >
                     KBCQNA is a leading website providing valuable, convenient, relevant and enjoyable online education pertaining to GK to students or kbc participants, asp seeirants and general public through a diversity of services. The main orientation of this website is to create a large repository of knowledge for the general reference of students and aspirants. KBCQNA was launched in 2021 and is a pioneer in providing high quality content to students and kbc participants in India.
                 </Typography>
@@ -36,6 +37,7 @@ function Aboutus() {
                 </Typography>
                 <Footer />
             </div>
+        )} />
     )
 }
 

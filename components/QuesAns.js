@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         textTransform: 'capitalize'
     },
+    button:{
+        marginLeft:20
+    },
     shareIcons: {
         textAlign: "cente",
         marginLeft: 20

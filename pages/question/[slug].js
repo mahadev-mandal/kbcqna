@@ -22,8 +22,6 @@ export async function getStaticProps({ params }) {
         props: { ques }
     }
 }
-
-
 function Question({ ques }) {
     const router = useRouter();
     if (router.isFallback) {
@@ -37,9 +35,7 @@ function Question({ ques }) {
                 <meta name="keywords" content={`${ques.keywords},kbc season ${ques.season} episode ${ques.episode}`}
                 />
             </Head>
-            <Main
-                mainContent={<QuesAns ques={ques} />}
-            />
+            <Main mainContent={<QuesAns ques={ques}/>} />
         </div>
     )
 }
