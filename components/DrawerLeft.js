@@ -231,8 +231,8 @@ export default function DrawerLeft({ drawerContent }) {
           <Divider />
           <List className={classes.leftSide}>
             {navbar.map((nav)=>(
-              <Link href={nav.link} >
-                <ListItem button key={nav.text} className={router.asPath===nav.link?classes.active:""}>
+              <Link href={nav.link} key={nav.text}>
+                <ListItem button  className={router.asPath===nav.link?classes.active:""}>
                   <ListItemIcon >
                     {nav.icon}
                   </ListItemIcon>
