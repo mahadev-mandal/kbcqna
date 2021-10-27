@@ -4,14 +4,6 @@ import React from 'react'
 import Footer from '../components/Footer'
 import DrawerLeft from '../components/DrawerLeft'
 const useStyles = makeStyles((theme) => ({
-    root: {
-        marginRight: 10,
-        marginLeft: 10,
-        [theme.breakpoints.up('md')]: {
-            marginLeft: 60,
-            marginRight: 60,
-        }
-    },
     div1: {
         background: 'rgba(255,255,255,0.8)',
         textAlign: 'center',
@@ -56,7 +48,6 @@ function ContactUs() {
                         <span>Address:</span>
                     </Typography>
                 </div>
-                <Footer />
             </div>
         )} />
     )

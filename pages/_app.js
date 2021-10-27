@@ -5,7 +5,7 @@ import Heading from '../components/Heading'
 
 function MyApp({ Component, pageProps }) {
   return <ThemeProvider theme={theme}>
-             {/* <Heading/> */}
+             <Heading/>
              <Component {...pageProps} />
           </ThemeProvider>
 }

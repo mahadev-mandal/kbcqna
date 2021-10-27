@@ -24,7 +24,7 @@ function QuesList({ question }) {
                 <ListItemIcon style={{ minWidth: 30 }} >
                     <SendIcon fontSize="small" />
                 </ListItemIcon>
-                <Link  href={question.slug?"/question/"+question.slug:'/question/'+question._id}
+                <Link href={question.slug ? "/question/" + question.slug : '/question/' + question._id}
                 >
                     <a className={classes.a}>
                         <ListItemText primary={question.question} />

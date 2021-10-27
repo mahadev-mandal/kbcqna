@@ -9,11 +9,7 @@ import DrawerLeft from './DrawerLeft';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // marginLeft: 10,
-        // marginRight: 10,
-        [theme.breakpoints.up('md')]: {
-            padding: '20px 60px'
-        }
+        
     },
     a: {
         '&:hover': {
@@ -63,7 +59,7 @@ function Main({ mainContent }) {
                                     : error ? <div style={{ color: 'red' }}>Something went wrong</div> : 'loading...'}
                             </Grid>
                         </Grid>
-                        <Divider orientation="vertical" flexItem style={{ marginRight: '-1px' }} />
+                        {/* <Divider orientation="vertical" flexItem style={{ marginRight: '-1px' }} /> */}
                         <Grid item xs={12} md={4} >
                             <Typography variant='h5'>
                                 Popular Questions

@@ -15,9 +15,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import Heading from './Heading';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { alpha } from '@material-ui/core';
@@ -80,7 +77,17 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    paddingTop: theme.spacing(8),
+    paddingLeft:theme.spacing(2),
+    marginRight:-10,
+    [theme.breakpoints.up('sm')]:{
+      paddingLeft:40,
+      paddingRight:40,
+    },
+    [theme.breakpoints.up('md')]:{
+      paddingLeft:80,
+      paddingRight:80,
+    },
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -158,7 +165,7 @@ const useStyles = makeStyles((theme) => ({
 
 const navbar = [
   {text:"Home",icon:<HomeIcon/>,link:"/"},
-  {text:"Questions",icon:<QuestionAnswerIcon/>,link:"#"},
+  {text:"Questions",icon:<QuestionAnswerIcon/>,link:"/questions"},
   {text:"About Us",icon:<InfoIcon/>,link:"/aboutus"},
   {text:"Constact Us",icon:<ContactMailIcon/>,link:"/contactus"},
   {text:"Terms & Conditions",icon:<AcUnitIcon/>,link:"/terms-conditions"},
@@ -181,7 +188,6 @@ export default function DrawerLeft({ drawerContent }) {
 
   return (
     <>
-    <Heading/>
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -228,6 +234,7 @@ export default function DrawerLeft({ drawerContent }) {
           }}
         >
           <div className={classes.drawerHeader} >
+            <Typography variant="h4" style={{fontFamily:'cursive'}}>KBCQNA</Typography>
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
@@ -246,7 +253,7 @@ export default function DrawerLeft({ drawerContent }) {
             ))}
           </List>
         </Drawer>
-        <main style={{marginTop:20}}
+        <main 
           className={clsx(classes.content, {
             [classes.contentShift]: open,
           })}
