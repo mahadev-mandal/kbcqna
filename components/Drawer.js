@@ -20,11 +20,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   appBar: {
+    marginTop:55,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+     
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
   },
   drawerOpen: {
+    marginTop:55,
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -53,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   drawerClose: {
+    marginTop:55,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

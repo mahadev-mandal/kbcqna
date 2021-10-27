@@ -11,6 +11,8 @@ export default class MyDocument extends Document {
           {/* google search console */}
           <meta name="google-site-verification" content="d4WDvavE6o6YacQgWn4vefmFO-r3JTSk3vL2AyRtTBY" />
           {/* Global site tag (gtag.js) - Google Analytics  */}
+          {/* kbcqna = G-3KB9YC31ZX */}
+          {/* kbcqna1 = UA-151632739-1 */}
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-3KB9YC31ZX"
@@ -21,7 +23,7 @@ export default class MyDocument extends Document {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', 'G-3KB9YC31ZX', {
+                gtag('config', 'UA-151632739-1', {    
                   page_path: window.location.pathname,
                 });
           `,

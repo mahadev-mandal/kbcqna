@@ -13,6 +13,7 @@ import { blue } from '@material-ui/core/colors';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { baseURL } from '../../helpers/constants';
+import DrawerLeft from '../../components/DrawerLeft'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -51,73 +52,75 @@ function LoginPage({ isAuth }) {
         async onSubmit(values) {
             await axios.post(`${baseURL}/api/login`, values)
                 .then((res) => {
-                    Cookies.set('jwt',res.data.token)
+                    Cookies.set('jwt', res.data.token)
                     router.push('/admin/dashboard')
                 }).catch((err) => {
                     setMessage(err.response.data.errorMessage)
                 })
         }
     })
-    useEffect(()=>{
-        if(Cookies.get('jwt')){
+    useEffect(() => {
+        if (Cookies.get('jwt')) {
             router.push('/admin/dashboard')
         }
     })
-    const resetError = ()=>{
+    const resetError = () => {
         setMessage("")
     }
     return (
-        <div>
-            <Grid container  >
-                <Grid item
-                    component={Paper}
-                    elevation={5}
-                    className={classes.root}
-                    sm={5} md={3} xs={10}
-                >
-                    <form noValidate autoComplete="off">
-                        <Avatar className={classes.avatar}>
-                            <PersonIcon className={classes.userIcon} />
-                        </Avatar> <br />
+        <DrawerLeft drawerContent={(
+            <div>
+                <Grid container  >
+                    <Grid item
+                        component={Paper}
+                        elevation={5}
+                        className={classes.root}
+                        sm={5} md={3} xs={10}
+                    >
+                        <form noValidate autoComplete="off">
+                            <Avatar className={classes.avatar}>
+                                <PersonIcon className={classes.userIcon} />
+                            </Avatar> <br />
 
-                        <TextField
-                            label='Username'
-                            id='email'
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            onKeyDown={resetError}
-                            value={values.email}
-                            error={errors.email && touched.email ? true : false}
-                            helperText={errors.email && touched.email ? errors.email : null}
-                        /> <br /><br />
-                        <TextField
-                            type='password'
-                            label='Password'
-                            id='password'
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            onKeyDown={resetError}
-                            value={values.password}
-                            error={errors.password && touched.password ? true : false}
-                            helperText={errors.password && touched.password ? errors.password : null}
-                        /> <br /><br />
-                        <Typography variant='subtitle2'
-                            style={{ color: 'red', marginBottom: 15 }}
-                        >
+                            <TextField
+                                label='Username'
+                                id='email'
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                onKeyDown={resetError}
+                                value={values.email}
+                                error={errors.email && touched.email ? true : false}
+                                helperText={errors.email && touched.email ? errors.email : null}
+                            /> <br /><br />
+                            <TextField
+                                type='password'
+                                label='Password'
+                                id='password'
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                onKeyDown={resetError}
+                                value={values.password}
+                                error={errors.password && touched.password ? true : false}
+                                helperText={errors.password && touched.password ? errors.password : null}
+                            /> <br /><br />
+                            <Typography variant='subtitle2'
+                                style={{ color: 'red', marginBottom: 15 }}
+                            >
 
-                        </Typography>
-                        <Button fullWidth
-                            onClick={handleSubmit}
-                            color='secondary'
-                            variant='contained'
-                        >
-                            Login
-                        </Button>
-                        <Typography variant="subtitle2" style={{ color:' red' }}>{message}</Typography>
-                    </form>
+                            </Typography>
+                            <Button fullWidth
+                                onClick={handleSubmit}
+                                color='secondary'
+                                variant='contained'
+                            >
+                                Login
+                            </Button>
+                            <Typography variant="subtitle2" style={{ color: ' red' }}>{message}</Typography>
+                        </form>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </div>
+            </div>
+        )} />
     )
 }
 

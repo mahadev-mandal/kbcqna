@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 function QuesList({ question }) {
     const classes = useStyles();
     return (
-        <List component={Paper} style={{ padding: 0, marginTop: 1 }} >
+        <List component={Paper} style={{ marginTop: 1 }} >
             <ListItem alignItems="flex-start" spacing={0}>
                 <ListItemIcon style={{ minWidth: 30 }} >
                     <SendIcon fontSize="small" />
