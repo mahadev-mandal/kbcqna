@@ -8,7 +8,7 @@ import { Paper } from "@material-ui/core";
 import fetchTotal from "../../controllers/fetchTotal";
 import { useState } from "react";
 
-function questions() {
+function Ques() {
     const [page,setPage] = useState(1);
 
     const { data: questions, error } = useSWR(`${baseURL}/api/questions?n=10&p=${page}`, fetchData);
@@ -26,7 +26,7 @@ function questions() {
     return (
         <>
             {questions.map((question) => (
-                <QuesList question={question} />
+                <QuesList question={question} key={question.question}/>
             ))}
             <Paper style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                 <Pagination
@@ -40,5 +40,5 @@ function questions() {
     )
 }
 export default function Questins(){
-    return <DrawerLeft drawerContent={questions()}/>
+    return <DrawerLeft drawerContent={<Ques/>}/>
 }
