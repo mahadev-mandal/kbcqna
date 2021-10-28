@@ -1,2 +1,6 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://www.kbcqna.com/sitemap.xml
