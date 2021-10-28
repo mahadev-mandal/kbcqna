@@ -9,7 +9,7 @@ const SitemapXml = () => { };
 
 export const getServerSideProps = async ({ res }) => {
     
-    const resData = await axios.get(`${baseURL}/api/questions`);
+    const resData = await axios.get(`${baseURL}/api/sitemap`);
     const dynamicPages=await resData.data;
     
     const staticPages = [''];
