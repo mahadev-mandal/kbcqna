@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
           />
           {/* Adsense script */}
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6253335086938766"
-            crossorigin="anonymous"></script>
+            crossOrigin="anonymous"></script>
         </Head>
         <body>
           <Main />
