@@ -13,12 +13,12 @@ function MyApp({ Component, pageProps }) {
       page_path: url,
     });
   };
-  useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    }
-  }, [router.events])
+  // useEffect(() => {
+  //   router.events.on('routeChangeComplete', handleRouteChange);
+  //   return () => {
+  //     router.events.off('routeChangeComplete', handleRouteChange);
+  //   }
+  // }, [router.events])
 
   return <ThemeProvider theme={theme}>
     <Heading />
