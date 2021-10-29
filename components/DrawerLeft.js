@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   appBar: {
-    marginTop:55,
+    marginTop: 55,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    marginTop:55,
+    marginTop: 55,
   },
   drawerHeader: {
     display: 'flex',
@@ -70,24 +70,24 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
-    background:'blue',
-    '& *':{
-      color:'white',
+    background: 'blue',
+    '& *': {
+      color: 'white',
     }
   },
   content: {
     flexGrow: 1,
     paddingTop: theme.spacing(8),
-    paddingLeft:theme.spacing(2),
-    paddingRight:theme.spacing(2),
-    marginRight:-10,
-    [theme.breakpoints.up('sm')]:{
-      paddingLeft:40,
-      paddingRight:40,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    marginRight: -10,
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: 40,
+      paddingRight: 40,
     },
-    [theme.breakpoints.up('md')]:{
-      paddingLeft:80,
-      paddingRight:80,
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: 80,
+      paddingRight: 80,
     },
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -148,29 +148,29 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
-  leftSide:{
-    '& *':{
-      color:'white',
+  leftSide: {
+    '& *': {
+      color: 'white',
     },
-    background:"linear-gradient(to bottom,rgba(255,0,0,0.5),rgba(255,69,0,0.5),rgba(255,165,0,0.5))",
-    height:'100%',
+    background: "linear-gradient(to bottom,rgba(255,0,0,0.5),rgba(255,69,0,0.5),rgba(255,165,0,0.5))",
+    height: '100%',
   },
-  active:{
-    background:'green',
-    borderRadius:"0 10px 10px 0",
-    '&:hover':{
-      background:'green',
+  active: {
+    background: 'green',
+    borderRadius: "0 10px 10px 0",
+    '&:hover': {
+      background: 'green',
     }
   }
 }));
 
 const navbar = [
-  {text:"Home",icon:<HomeIcon/>,link:"/"},
-  {text:"Questions",icon:<QuestionAnswerIcon/>,link:"/questions"},
-  {text:"About Us",icon:<InfoIcon/>,link:"/aboutus"},
-  {text:"Constact Us",icon:<ContactMailIcon/>,link:"/contactus"},
-  {text:"Terms & Conditions",icon:<AcUnitIcon/>,link:"/terms-conditions"},
-  {text:"Privacy Policy",icon:<PolicyIcon/>,link:"/privacy-policy"},
+  { text: "Home", icon: <HomeIcon />, link: "/" },
+  { text: "Questions", icon: <QuestionAnswerIcon />, link: "/questions" },
+  { text: "About Us", icon: <InfoIcon />, link: "/aboutus" },
+  { text: "Constact Us", icon: <ContactMailIcon />, link: "/contactus" },
+  { text: "Terms & Conditions", icon: <AcUnitIcon />, link: "/terms-conditions" },
+  { text: "Privacy Policy", icon: <PolicyIcon />, link: "/privacy-policy" },
 ]
 
 export default function DrawerLeft({ drawerContent }) {
@@ -222,7 +222,7 @@ export default function DrawerLeft({ drawerContent }) {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-          </div>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -235,26 +235,28 @@ export default function DrawerLeft({ drawerContent }) {
           }}
         >
           <div className={classes.drawerHeader} >
-            <Typography variant="h4" style={{fontFamily:'cursive'}}>KBCQNA</Typography>
+            <Typography variant="h4" style={{ fontFamily: 'cursive' }}>KBCQNA</Typography>
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </div>
           <Divider />
           <List className={classes.leftSide}>
-            {navbar.map((nav)=>(
+            {navbar.map((nav) => (
               <Link href={nav.link} key={nav.text}>
-                <ListItem button  className={router.asPath===nav.link?classes.active:""}>
-                  <ListItemIcon >
-                    {nav.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={nav.text}/>
-                </ListItem>
+                <a>
+                  <ListItem button className={router.asPath === nav.link ? classes.active : ""}>
+                    <ListItemIcon >
+                      {nav.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={nav.text} />
+                  </ListItem>
+                </a>
               </Link>
             ))}
           </List>
         </Drawer>
-        <main 
+        <main
           className={clsx(classes.content, {
             [classes.contentShift]: open,
           })}
@@ -262,9 +264,9 @@ export default function DrawerLeft({ drawerContent }) {
           {drawerContent}
         </main>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
-    
-} 
-  
+
+}
+

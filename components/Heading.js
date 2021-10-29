@@ -23,9 +23,11 @@ function Heading() {
     return (
         <div className={classes.heading}>
             <Link href="/">
-                <div className={classes.logo}>
-                    <Image src={logo} alt='logo' height={60} />
-                </div>
+                <a >
+                    <div className={classes.logo}>
+                        <Image src={logo} alt='logo' height={60} />
+                    </div>
+                </a>
             </Link>
         </div>
     )

@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* google search console */}
           <meta name="google-site-verification" content="d4WDvavE6o6YacQgWn4vefmFO-r3JTSk3vL2AyRtTBY" />
-          {/* Global site tag (gtag.js) - Google Analytics  */}
+          {/* Global site tag (gtag.js) - Google Analytics to track on page load */}
           {/* kbcqna = G-3KB9YC31ZX */}
           {/* kbcqna1 = UA-151632739-1 */}
           <script
