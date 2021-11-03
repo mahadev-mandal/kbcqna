@@ -13,6 +13,7 @@ export const getServerSideProps = async ({ res }) => {
     const dynamicPages=await resData.data;
     
     const staticPages = [''];
+    const categoryPages = ['questions'];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -22,6 +23,15 @@ export const getServerSideProps = async ({ res }) => {
                         <loc>${baseURL}/${page}</loc>
                         <changefreq>daily</changefreq>
                         <priority>1.0</priority>
+                    </url>`;
+            }).join("")}
+
+            ${categoryPages.map((page) => {
+                return `
+                    <url>
+                        <loc>${baseURL}/${page}</loc>
+                        <changefreq>daily</changefreq>
+                        <priority>0.85</priority>
                     </url>`;
             }).join("")}
            
@@ -38,7 +48,7 @@ export const getServerSideProps = async ({ res }) => {
 
 
 
-    res.setHeader("Content-Type", "application/xml");
+    res.setHeader("Content-Type", "text/xml");
     res.write(sitemap);
     res.end();
 

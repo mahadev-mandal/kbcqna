@@ -150,16 +150,26 @@ const useStyles = makeStyles((theme) => ({
   },
   leftSide: {
     '& *': {
-      color: 'white',
+      color: 'black',
     },
     background: "linear-gradient(to bottom,rgba(255,0,0,0.5),rgba(255,69,0,0.5),rgba(255,165,0,0.5))",
     height: '100%',
+    
   },
   active: {
     background: 'green',
-    borderRadius: "0 10px 10px 0",
+    borderRadius: "0 25px 25px 0",
+    '& *': {
+      color: 'white',
+    },
     '&:hover': {
       background: 'green',
+    }
+  },
+  navItem:{
+    borderRadius: "0 25px 25px 0",
+    '&:hover': {
+      background: 'blue',
     }
   }
 }));
@@ -245,7 +255,7 @@ export default function DrawerLeft({ drawerContent }) {
             {navbar.map((nav) => (
               <Link href={nav.link} key={nav.text}>
                 <a>
-                  <ListItem button className={router.asPath === nav.link ? classes.active : ""}>
+                  <ListItem button className={router.asPath === nav.link ? classes.active : classes.navItem}>
                     <ListItemIcon >
                       {nav.icon}
                     </ListItemIcon>
