@@ -1,1 +1,1 @@
-export const baseURL = process.env.NODE_ENV === 'production' ? "https://www.kbcqna.com" : "http://localhost:3000"
+export const baseURL = process.env.NODE_ENV === 'production' ? "https://kbcqna.vercel.app/" : "http://localhost:3000"
